@@ -1,7 +1,7 @@
 #pragma once
 enum Gender
 {
-	Homme,
-	Femme,
-	Autre,
+	Man,
+	Woman,
+	other,
 };

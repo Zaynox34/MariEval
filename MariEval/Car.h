@@ -1,5 +1,4 @@
 #pragma once
-#include <string>
 #include "Color.h"
 #include "Date.h"
 #include "Person.h"
@@ -11,12 +10,17 @@ private:
 	Color mColor;
 	std::string mLicensePlate;
 	Date mYearConstruction;
-	unsigned int kilometer; 
+	unsigned int mKilometer; 
 	unsigned int mCost;
 public:
 	Car(std::string, std::string, Color, std::string, Date, unsigned int);
 	Car();
 	~Car();
+	std::string GetBrand();
+	std::string GetModel();
+	std::string GetColor();
+	std::string GetLicensePlate();
+	unsigned int GetCost();
 	void Roll(unsigned int);	
 	void ChangeColor(Color);
 };

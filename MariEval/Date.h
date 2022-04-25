@@ -1,4 +1,5 @@
 #pragma once
+#include <string>
 #include "Month.h"
 class Date
 {
@@ -8,6 +9,7 @@ private:
 	int mYear;
 public:
 	Date();
+	std::string to_string();
 	Date(unsigned int, Month, int);
 	int GetDay();
 	Month GetMonth();
