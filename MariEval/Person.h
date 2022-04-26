@@ -21,9 +21,9 @@ public:
 	void BuyACar(Car&);
 	Car* GetCar(int);
 	std::string GetFirstName();
-	void SellACar(Person&);
+	void SellACar(Person&,int);
 	void GainMoney(int);
-	void RollInTheCar(int);
-	void PaintTheCar(Color);
+	void RollInTheCar(int, int);
+	void PaintTheCar(Color,int);
 };
 

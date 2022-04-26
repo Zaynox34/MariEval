@@ -56,9 +56,12 @@ void Person::IntroduceThemselves()
 	}
 	else
 	{
-		for(Car* element : mListCar)
-		cout << mFirstname << " has " << mMoney << "€ and a " << element->GetBrand()
-			<<" "<< element->GetModel()<<" (" << element->GetLicensePlate() <<")" << "\n";
+		cout << mFirstname << " has " << mMoney << "€ and a ";
+		for (Car* element : mListCar)
+		{
+			cout << element->GetBrand() << " " << element->GetModel() << " (" << element->GetLicensePlate() << ") ";
+		}
+		cout << "\n";
 	}
 	
 }
@@ -81,7 +84,7 @@ std::string Person::GetFirstName()
 	return mFirstname;
 }
 
-void Person::SellACar(Person& p)
+void Person::SellACar(Person& p,int nbvoit)
 {
 	if (mListCar.size() == 0)
 	{
@@ -90,14 +93,14 @@ void Person::SellACar(Person& p)
 	else
 	{
 		cout << mFirstname << " sell their car to  " << p.GetFirstName() <<"\n";
-		mMoney += mCar->GetCost();
-		cout << mFirstname << " earned " << mCar->GetCost() << " €,they now have "
+		mMoney += mListCar[nbvoit]->GetCost();
+		cout << mFirstname << " earned " << mListCar[nbvoit]->GetCost() << " €,they now have "
 			<< std::to_string(mMoney) << "€" << "\n";
 
 	}
 
-	p.BuyACar(*mCar);
-	mCar = nullptr;
+	p.BuyACar(*mListCar[nbvoit]);
+	mListCar[nbvoit] = nullptr;
 
 
 }
@@ -109,17 +112,17 @@ void Person::GainMoney(int i)
 		<< std::to_string(mMoney) << "€" <<"\n";
 }
 
-void Person::RollInTheCar(int km)
+void Person::RollInTheCar(int km,int nbvoit)
 {
-	cout << mFirstname << " rolls with the " << mCar->GetBrand()
-		<< " " << mCar->GetModel() << " (" << mCar->GetLicensePlate() << ") for " << km << " km" << "\n";
-	mCar->Roll(km);
+	cout << mFirstname << " rolls with the " << mListCar[nbvoit]->GetBrand()
+		<< " " << mListCar[nbvoit]->GetModel() << " (" << mListCar[nbvoit]->GetLicensePlate() << ") for " << km << " km" << "\n";
+	mListCar[nbvoit]->Roll(km);
 	
 }
 
-void Person::PaintTheCar(Color c)
+void Person::PaintTheCar(Color c, int nbvoit)
 {
 	cout << mFirstname << " paints his car ";
-	mCar->ChangeColor(c);
+	mListCar[nbvoit]->ChangeColor(c);
 	
 }
